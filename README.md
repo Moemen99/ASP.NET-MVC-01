@@ -400,19 +400,19 @@ graph TD
 
 ```mermaid
 graph LR
-    subgraph "1. Static Pages"
+    subgraph "Static Pages"
         HTML[HTML] --> Structure[Structure]
         CSS[CSS] --> Style[Styling]
     end
 
-    subgraph "2. Dynamic Pages"
+    subgraph "Dynamic Pages"
         JS[JavaScript] --> Client[Client-side Logic]
         Client --> Validation[Form Validation]
         Client --> UI[UI Interactions]
         Client --> Animation[Animations]
     end
 
-    subgraph "3. Active Pages"
+    subgraph "Active Pages"
         CS[C#] --> Server[Server-side Logic]
         Server --> DB[(Database)]
         Server -->|Rendered HTML| Browser[Browser]
