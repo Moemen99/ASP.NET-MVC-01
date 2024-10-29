@@ -89,6 +89,7 @@ This document outlines the key differences between web applications (like those 
    - Monitor server resources
 
 
+mermaid
 ```
 graph TD
     A[Client/Browser] -->|HTTP Request/URL| B[Web Server]
