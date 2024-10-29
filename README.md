@@ -400,17 +400,6 @@ graph TD
 
 ```mermaid
 graph LR
-    subgraph "Static Pages"
-        HTML[HTML] --> Structure[Structure]
-        CSS[CSS] --> Style[Styling]
-    end
-
-    subgraph "Dynamic Pages"
-        JS[JavaScript] --> Client[Client-side Logic]
-        Client --> Validation[Form Validation]
-        Client --> UI[UI Interactions]
-        Client --> Animation[Animations]
-    end
 
     subgraph "Active Pages"
         CS[C#] --> Server[Server-side Logic]
@@ -418,5 +407,16 @@ graph LR
         Server -->|Rendered HTML| Browser[Browser]
         EF[Entity Framework] --> DB
         ADO[ADO.NET] --> DB
+    end
+    subgraph "Dynamic Pages"
+        JS[JavaScript] --> Client[Client-side Logic]
+        Client --> Validation[Form Validation]
+        Client --> UI[UI Interactions]
+        Client --> Animation[Animations]
+    end
+
+    subgraph "Static Pages"
+        HTML[HTML] --> Structure[Structure]
+        CSS[CSS] --> Style[Styling]
     end
 ```
