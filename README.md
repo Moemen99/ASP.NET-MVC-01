@@ -89,7 +89,7 @@ This document outlines the key differences between web applications (like those 
    - Monitor server resources
 
 
-
+```
 graph TD
     A[Client/Browser] -->|HTTP Request/URL| B[Web Server]
     B -->|HTTP Response| A
@@ -107,3 +107,4 @@ graph TD
     A
     E
     end
+```
