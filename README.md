@@ -87,3 +87,23 @@ This document outlines the key differences between web applications (like those 
    - Optimize for multiple concurrent users
    - Implement caching strategies
    - Monitor server resources
+
+
+
+graph TD
+    A[Client/Browser] -->|HTTP Request/URL| B[Web Server]
+    B -->|HTTP Response| A
+    B -->|Hosts| C[Web Application]
+    D[IIS/Apache] -->|Manages| B
+    E[Multiple Clients] -->|Access Same URL| B
+    
+    subgraph Server Side
+    B
+    C
+    D
+    end
+
+    subgraph Client Side
+    A
+    E
+    end
