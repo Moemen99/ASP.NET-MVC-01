@@ -705,3 +705,27 @@ User → Controller → Model → Controller → View → User
 - Razor Pages for simpler scenarios
 - Consider maintenance requirements
 - Team familiarity
+
+
+
+graph TD
+    subgraph "Two-Tier Architecture"
+        P2[Presentation Layer] --> B2[Business Layer]
+    end
+
+    subgraph "Three-Tier Architecture"
+        P3[Presentation Layer] --> B3[Business Layer]
+        B3 --> D3[Data Layer]
+    end
+
+    subgraph "Four-Layer Architecture"
+        P4[Presentation Layer] --> S4[Service Layer]
+        S4 --> B4[Business Layer]
+        B4 --> D4[Data Layer]
+    end
+
+    subgraph "MVC Pattern"
+        V[View] --> C[Controller]
+        M[Model] --> C
+        C --> V
+    end
