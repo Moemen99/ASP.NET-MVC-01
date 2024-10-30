@@ -420,3 +420,153 @@ graph LR
         CSS[CSS] --> Style[Styling]
     end
 ```
+
+
+
+
+# .NET Framework Architecture and Web Development
+
+## 1. Base Layer: .NET Framework
+
+### Core Components
+- Base Class Library (BCL)
+- Common runtime environment
+- Fundamental data types
+- Collections framework
+- System utilities
+
+### Capabilities
+- Console applications
+- Class libraries
+- Desktop applications
+- Core infrastructure
+
+## 2. Middle Layer: ASP.NET Core
+
+### Characteristics
+- Open-source web framework
+- Cross-platform compatibility
+- Modern web development features
+- Optimized performance
+- Community-driven development
+
+### Key Features
+- Built-in dependency injection
+- Cross-platform support
+- Modular architecture
+- High performance
+- Modern development patterns
+
+## 3. Application Layer
+
+### Web Applications (Frontend + Backend)
+1. **MVC (Model-View-Controller)**
+   - Complete web applications
+   - Server-side rendering
+   - Full-stack development
+   - Integrated frontend/backend
+
+2. **Razor Pages**
+   - Page-focused scenarios
+   - Simplified web development
+   - Built-in view engine
+   - Page-based programming model
+
+### Web Services (Backend Only)
+1. **Web API**
+   - RESTful services
+   - HTTP-based APIs
+   - Data-centric services
+   - Platform-independent interfaces
+
+2. **SignalR**
+   - Real-time communications
+   - WebSocket functionality
+   - Push notifications
+   - Live updates
+
+## Framework Benefits
+
+### 1. Integration
+- Seamless use of .NET features
+- Access to BCL functionality
+- Shared runtime environment
+- Common type system
+
+### 2. Development Efficiency
+- Consistent programming model
+- Rich tooling support
+- Large ecosystem
+- Extensive documentation
+
+### 3. Cross-Platform
+- Run on multiple OS
+- Cloud-ready
+- Container support
+- Microservices capable
+
+## Best Practices
+
+### 1. Architecture Selection
+- Choose based on requirements
+- Consider scalability needs
+- Evaluate team expertise
+- Assessment of deployment environment
+
+### 2. Development Strategy
+- Proper layer separation
+- Clean architecture principles
+- Modular development
+- Security considerations
+
+### 3. Performance Optimization
+- Efficient resource usage
+- Caching strategies
+- Asynchronous programming
+- Load balancing
+
+## Technology Stack Overview
+
+```plaintext
+Application Layer
+├── Web Applications
+│   ├── MVC
+│   └── Razor Pages
+└── Web Services
+    ├── Web API
+    └── SignalR
+
+ASP.NET Core Layer
+├── Web Framework Features
+├── Middleware
+└── Core Services
+
+.NET Framework Layer
+├── Base Class Library
+├── Runtime Environment
+└── Core Features
+```
+
+```mermaid
+graph BT
+    subgraph "Applications"
+        MVC["MVC Applications"] --> ASP
+        RP["Razor Pages"] --> ASP
+        WA["Web API"] --> ASP
+        SR["SignalR"] --> ASP
+    end
+
+    subgraph "Web Framework"
+        ASP["ASP.NET Core"] --> DN
+    end
+
+    subgraph "Base Framework"
+        DN[".NET Framework"] --> BCL
+        BCL["Base Class Library"]
+    end
+
+    style BCL fill:#f9f,stroke:#333,stroke-width:2px
+    style DN fill:#bbf,stroke:#333,stroke-width:2px
+    style ASP fill:#ddf,stroke:#333,stroke-width:2px
+```
+
