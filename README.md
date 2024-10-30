@@ -573,4 +573,135 @@ graph TD
     style WA fill:#2f4f4f,stroke:#333,stroke-width:2px
     style SR fill:#2f4f4f,stroke:#333,stroke-width:2px
 ```
+# Architectural Patterns in ASP.NET Development
 
+## Layered Architecture Approaches
+
+### 1. Two-Tier Architecture
+- **Presentation Layer**
+  - User interface
+  - User interaction
+- **Business Layer**
+  - Business logic
+  - Data processing
+
+### 2. Three-Tier Architecture
+- **Presentation Layer**
+  - User interface
+  - User interaction
+- **Business Layer**
+  - Business logic
+  - Data processing
+  - Business rules
+- **Data Layer**
+  - Data access
+  - Database operations
+  - Data persistence
+
+### 3. Four-Layer Architecture
+- **Presentation Layer**
+  - User interface
+  - User experience
+  - Client-side logic
+- **Service Layer**
+  - API endpoints
+  - Service interfaces
+  - External communication
+- **Business Layer**
+  - Core business logic
+  - Business rules
+  - Domain models
+- **Data Layer**
+  - Database operations
+  - Data access
+  - Data persistence
+
+## MVC Design Pattern
+
+### Components
+1. **Model**
+   - Business logic
+   - Data structures
+   - Business rules
+   - Data validation
+
+2. **View**
+   - User interface
+   - Data presentation
+   - User interaction
+   - Template rendering
+
+3. **Controller**
+   - Request handling
+   - Flow control
+   - Model-View bridge
+   - Business logic coordination
+
+### MVC Benefits
+1. **Separation of Concerns**
+   - Clear responsibilities
+   - Modular development
+   - Better maintainability
+   - Easier testing
+
+2. **Code Organization**
+   - Structured development
+   - Clear dependencies
+   - Organized codebase
+   - Better scalability
+
+## Microsoft's Implementation
+
+### 1. ASP.NET MVC
+- Enforces layered architecture
+- Implements MVC pattern
+- Promotes clean code
+- Supports design patterns
+- Object-oriented approach
+
+### 2. Razor Pages
+- Alternative to MVC
+- Simpler architecture
+- Page-based model
+- Less architectural complexity
+- Faster development
+
+## Best Practices
+
+### 1. Architecture Selection
+- Based on project size
+- Team expertise
+- Scalability requirements
+- Maintenance needs
+
+### 2. Code Organization
+- Clear separation
+- Defined responsibilities
+- Proper interfaces
+- Dependency management
+
+### 3. Design Patterns
+- Appropriate pattern use
+- Consistent implementation
+- Clean architecture
+- SOLID principles
+
+## Architectural Considerations
+
+### 1. Dependency Management
+```plaintext
+Layered Dependencies:
+Presentation → Service → Business → Data
+```
+
+### 2. Communication Flow
+```plaintext
+MVC Flow:
+User → Controller → Model → Controller → View → User
+```
+
+### 3. Pattern Selection
+- MVC for complex applications
+- Razor Pages for simpler scenarios
+- Consider maintenance requirements
+- Team familiarity
