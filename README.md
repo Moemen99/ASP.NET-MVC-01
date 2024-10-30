@@ -707,7 +707,7 @@ User → Controller → Model → Controller → View → User
 - Team familiarity
 
 
-
+```
 graph TD
     subgraph "Two-Tier Architecture"
         P2[Presentation Layer] --> B2[Business Layer]
@@ -729,3 +729,178 @@ graph TD
         M[Model] --> C
         C --> V
     end
+```
+
+
+# MVC Architecture: Student Management System
+
+## Components Overview
+
+### 1. Model (M)
+- **Database Tables**
+  ```csharp
+  public class Student
+  {
+      public int Id { get; set; }
+      public string Name { get; set; }
+      // Other properties
+  }
+  ```
+
+- **Business Logic (BL) Layer**
+  ```csharp
+  public class StudentBL
+  {
+      // Get all students
+      public List<Student> GetAll()
+      
+      // Get student by ID
+      public Student GetById(int id)
+      
+      // Add new student
+      public void Add(Student student)
+      
+      // Delete student
+      public void Delete(int id)
+  }
+  ```
+
+### 2. View (V)
+- **HTML Pages**
+  ```html
+  <!-- DisplayAllStudents.cshtml -->
+  <table>
+      <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <!-- Other columns -->
+      </tr>
+      @foreach(var student in Model)
+      {
+          <tr>
+              <td>@student.Id</td>
+              <td>@student.Name</td>
+          </tr>
+      }
+  </table>
+  ```
+
+### 3. Controller (C)
+- **Request Handler**
+  ```csharp
+  public class StudentController : Controller
+  {
+      private readonly StudentBL _studentBL;
+      
+      public IActionResult DisplayAllStudents()
+      {
+          // 1. Catch request
+          // 2. Get data from Model
+          var students = _studentBL.GetAll();
+          // 3. Send data to View
+          return View(students);
+      }
+  }
+  ```
+
+## Data Flow Process
+
+### 1. Request Initiation
+- User requests to view all students
+- Request reaches the Controller
+
+### 2. Controller Processing
+1. **Catch Request**
+   - Controller receives DisplayAllStudents request
+   - Identifies required action
+
+2. **Get Data**
+   - Controller calls StudentBL.GetAll()
+   - BL retrieves data from database
+   - Returns List<Student>
+
+3. **Send to View**
+   - Controller passes student list to view
+   - View renders data in HTML table
+
+## Component Interactions
+
+### Business Logic → Database
+- BL contains data access methods
+- Handles CRUD operations
+- Returns strongly-typed data
+
+### Controller → Business Logic
+- Controller doesn't access database directly
+- Uses BL methods for data operations
+- Manages flow between Model and View
+
+### Controller → View
+- Passes data to view template
+- Determines which view to render
+- Handles view-specific logic
+
+## Best Practices
+
+### 1. Separation of Concerns
+- Models handle data and business logic
+- Views handle presentation
+- Controllers handle flow control
+
+### 2. Code Organization
+- Keep controllers thin
+- Business logic in BL classes
+- Data access in Model layer
+
+### 3. Data Flow
+- One-way data flow
+- Clear responsibility chain
+- Minimal component coupling
+
+## Implementation Example
+
+```csharp
+// Complete flow example
+public class StudentController : Controller
+{
+    private readonly StudentBL _studentBL;
+    
+    public StudentController(StudentBL studentBL)
+    {
+        _studentBL = studentBL;
+    }
+    
+    public IActionResult DisplayAllStudents()
+    {
+        try
+        {
+            // Get data from business layer
+            var students = _studentBL.GetAll();
+            
+            // Send to view
+            return View(students);
+        }
+        catch (Exception ex)
+        {
+            // Handle error
+            return View("Error");
+        }
+    }
+}
+```
+
+```mermaid
+sequenceDiagram
+    participant View as DisplayAllStudents View
+    participant Controller as StudentController
+    participant BL as StudentBL
+    participant DB as Database
+
+    View->>Controller: Request all students
+    Controller->>BL: GetAll()
+    BL->>DB: Query students
+    DB-->>BL: Return student list
+    BL-->>Controller: Return List<Student>
+    Controller-->>View: Send data to view
+    View->>View: Display student table
+```
