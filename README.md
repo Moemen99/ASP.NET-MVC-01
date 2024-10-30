@@ -548,25 +548,29 @@ ASP.NET Core Layer
 ```
 
 ```mermaid
-graph BT
-    subgraph "Applications"
-        MVC["MVC Applications"] --> ASP
-        RP["Razor Pages"] --> ASP
-        WA["Web API"] --> ASP
-        SR["SignalR"] --> ASP
-    end
-
-    subgraph "Web Framework"
-        ASP["ASP.NET Core"] --> DN
-    end
-
+graph TD
     subgraph "Base Framework"
-        DN[".NET Framework"] --> BCL
         BCL["Base Class Library"]
     end
 
-    style BCL fill:#f9f,stroke:#333,stroke-width:2px
-    style DN fill:#bbf,stroke:#333,stroke-width:2px
-    style ASP fill:#ddf,stroke:#333,stroke-width:2px
+    subgraph "Web Framework"
+        NF[".NET Framework"] --> BCL
+    end
+
+    subgraph "Applications"
+        AC["ASP.NET Core"] --> NF
+        MVC["MVC Applications"] --> AC
+        RP["Razor Pages"] --> AC
+        WA["Web API"] --> AC
+        SR["SignalR"] --> AC
+    end
+
+    style BCL fill:#ff69b4,stroke:#333,stroke-width:2px
+    style NF fill:#9370db,stroke:#333,stroke-width:2px
+    style AC fill:#ffffff,stroke:#333,stroke-width:2px
+    style MVC fill:#2f4f4f,stroke:#333,stroke-width:2px
+    style RP fill:#2f4f4f,stroke:#333,stroke-width:2px
+    style WA fill:#2f4f4f,stroke:#333,stroke-width:2px
+    style SR fill:#2f4f4f,stroke:#333,stroke-width:2px
 ```
 
