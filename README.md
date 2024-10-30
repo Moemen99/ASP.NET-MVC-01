@@ -707,7 +707,7 @@ User → Controller → Model → Controller → View → User
 - Team familiarity
 
 
-```
+```mermaid
 graph TD
     subgraph "Two-Tier Architecture"
         P2[Presentation Layer] --> B2[Business Layer]
